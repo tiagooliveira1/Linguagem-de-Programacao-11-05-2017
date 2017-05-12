@@ -46,7 +46,13 @@ public class Main
 
                     break;
                 case 2:
-                    System.out.println("Não implementado");
+                    PreparedStatement stmtBusca =
+                    conn.prepareStatement("select  * from tiago_aluno");
+                    ResultSet rs = stmtBusca.executeQuery();
+                    while(rs.next()){
+                        System.out.print(rs.getInt("codigo"));
+                        System.out.println("-"+rs.getString("nome"));
+                        }
                     break;
 
                 default:
@@ -54,6 +60,7 @@ public class Main
             }
 
         }
+
 
     }
 
